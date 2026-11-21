@@ -113,13 +113,13 @@ whether the bus is live.
 
 ## Build
 
-Needs ESP-IDF exactly `v6.0.3` (pinned in `.idf-version`, equal to the espOS
+Needs ESP-IDF exactly `v6.1.1` (pinned in `.idf-version`, equal to the espOS
 submodule's pin) and nothing else: the espOS web UI is a committed bundle.
 
 ```sh
 git clone --recursive https://github.com/dirkwa/espos-nmea-gateway
 cd espos-nmea-gateway
-. ~/esp-idf-v6.0.3/export.sh
+. ~/esp-idf-v6.1.1/export.sh
 
 # esp32c5 here; esp32 / esp32s3 / esp32c3 / esp32c6 / esp32p4 the same way.
 scripts/build.sh -B build-esp32c5 -DSDKCONFIG=build-esp32c5/sdkconfig -DIDF_TARGET=esp32c5 build

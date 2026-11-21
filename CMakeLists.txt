@@ -6,7 +6,7 @@
 # submodule (espos/); this project picks the components, the CAN pins and the
 # few sdkconfig lines that differ from espOS's.
 #
-# Build:  . <IDF v6.0.3>/export.sh
+# Build:  . <IDF v6.1.1>/export.sh
 #         scripts/build.sh -B build-esp32c5 -DSDKCONFIG=build-esp32c5/sdkconfig -DIDF_TARGET=esp32c5 build
 cmake_minimum_required(VERSION 3.22)
 
