@@ -23,6 +23,7 @@
 #include "espos_n2k/candump_tcp_server.h"
 #include "espos_n2k/twai_receiver.h"
 #include "espos_n2k/twai_transmitter.h"
+#include "espos_n2k_api.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
@@ -98,11 +99,20 @@ extern "C" void app_main(void) {
   static espos_n2k::CandumpTcpServer server(&rx, transmit ? &tx : nullptr, {});
   server.start();
 
+  /* espos_start() has the web server up and rx is static, as the endpoint
+   * needs. Without it the bus is fine but nobody can see that it is. */
+  const esp_err_t api_err = espos_n2k_api_register(&rx);
+  if (api_err != ESP_OK) {
+    ESP_LOGW(TAG, "GET /api/v1/n2k not registered: %s", esp_err_to_name(api_err));
+  }
+
   ESP_LOGI(TAG, "CAN on TX=%d RX=%d at %u kbit/s, %s; candump on port %d",
            (int)tx_pin, (int)rx_pin, (unsigned)(kBitrate / 1000),
            transmit ? "sending and receiving" : "receive only",
            (int)CONFIG_ESPOS_N2K_CANDUMP_PORT);
-  ESP_LOGI(TAG, "bus health: GET /api/v1/n2k");
+  if (api_err == ESP_OK) {
+    ESP_LOGI(TAG, "bus health: GET /api/v1/n2k");
+  }
 
   /* Frames are handled on the TWAI node's task. This loop only narrates, and
    * only when something changes: once when the bus comes alive, once per
