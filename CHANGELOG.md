@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.1](https://github.com/dirkwa/espos-nmea-gateway/compare/v0.2.0...v0.2.1) (2026-11-22)
+
+
+### Fixed
+
+* bump espOS to v0.31.0 ([#29](https://github.com/dirkwa/espos-nmea-gateway/issues/29)) ([c9308cd](https://github.com/dirkwa/espos-nmea-gateway/commit/c9308cd96ab4ca6fc5d802a0e317d30246f98ca8))
+* bump espOS to v0.32.0 ([#32](https://github.com/dirkwa/espos-nmea-gateway/issues/32)) ([cb1e20b](https://github.com/dirkwa/espos-nmea-gateway/commit/cb1e20be7757d3794a8e2a311419cbbd00493da9))
+* register the GET /api/v1/n2k endpoint ([#31](https://github.com/dirkwa/espos-nmea-gateway/issues/31)) ([d96693e](https://github.com/dirkwa/espos-nmea-gateway/commit/d96693e98d6adfd232157fd8741f0730d48461b5))
+
 ## [0.2.0](https://github.com/dirkwa/espos-nmea-gateway/compare/v0.1.1...v0.2.0) (2026-10-14)
 
 
